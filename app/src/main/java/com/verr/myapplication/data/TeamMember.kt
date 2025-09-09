@@ -25,10 +25,10 @@ object TeamData {
         ),
         TeamMember(
             id = 2,
-            name = "팀원을 추가해주세요",
-            job = "... Developer",
-            location = "Busan, Korea",
-            description = "WAP 에 오신걸 환영합니다!"
+            name = "윤상혁",
+            job = "Fullstack Developer",
+            location = "Busan, Korea, PKNU",
+            description = "소프트웨어는 죽었다라고 말하는 시대에서 그나마 사람들에게 도움되는 서비스를 만드려고 노력합니다."
         ),
     )
 }
