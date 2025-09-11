@@ -34,6 +34,6 @@ class ProfileActivity : ComponentActivity() {
     }
 
     companion object {
-        private const val TEAM_MEMBER_KEY = "team_member"
+        public const val TEAM_MEMBER_KEY = "team_member"
     }
 }
