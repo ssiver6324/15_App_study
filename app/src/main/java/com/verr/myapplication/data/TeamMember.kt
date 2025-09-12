@@ -25,6 +25,14 @@ object TeamData {
         ),
         TeamMember(
             id = 2,
+            name = "심서은",
+            job = "FrontEnd Developer",
+            location = "Yangsan, Korea, PKNU",
+            description = "프론트 엔드와 앱 개발을 배우는 중입니다!",
+            profileImageUrl = "https://avatars.githubusercontent.com/u/202733674?v=4"
+        ),
+        TeamMember(
+            id = 3,
             name = "팀원을 추가해주세요",
             job = "... Developer",
             location = "Busan, Korea",

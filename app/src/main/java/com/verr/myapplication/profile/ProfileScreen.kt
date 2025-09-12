@@ -1,5 +1,9 @@
 package com.verr.myapplication.profile
 
+import coil.compose.AsyncImage
+import coil.request.ImageRequest
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -135,25 +139,37 @@ private fun ProfileContent(
                 .clip(RoundedCornerShape(75.dp)),
             elevation = CardDefaults.cardElevation(defaultElevation = 12.dp)
         ) {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(
-                        Brush.radialGradient(
-                            colors = listOf(
-                                Color(0xFF2196F3),
-                                Color(0xFF1976D2)
-                            )
-                        )
-                    ),
-                contentAlignment = Alignment.Center
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Person,
-                    contentDescription = "Profile",
-                    modifier = Modifier.size(80.dp),
-                    tint = Color.White
+            val ctx = LocalContext.current
+            val url = teamMember.profileImageUrl?.trim()
+
+            if (!url.isNullOrBlank() && (url.startsWith("http://") || url.startsWith("https://"))) {
+                AsyncImage(
+                    model = ImageRequest.Builder(ctx)
+                        .data(url)
+                        .crossfade(true)
+                        .build(),
+                    contentDescription = "Profile Picture",
+                    modifier = Modifier.fillMaxSize(),
+                    contentScale = ContentScale.Crop
                 )
+            } else {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(
+                            Brush.radialGradient(
+                                colors = listOf(Color(0xFF2196F3), Color(0xFF1976D2))
+                            )
+                        ),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Person,
+                        contentDescription = "Profile",
+                        modifier = Modifier.size(80.dp),
+                        tint = Color.White
+                    )
+                }
             }
         }
 
