@@ -25,9 +25,10 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun startMemberProfile(member: TeamMember) {
-        /**
-         * intent를 추가해주세요.
-         * **/
+        val intent=Intent(this, ProfileActivity::class.java).apply {
+            putExtra("team_member", member)
+            setExtrasClassLoader(TeamMember::class.java.classLoader)
+        }
         startActivity(intent)
     }
 }
